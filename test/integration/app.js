@@ -8,7 +8,7 @@ module.exports = {
   },
   api: {
     services: {
-      TapestryService: class TapestryService extends Controller {
+      TapestryService: class TapestryService extends Service {
 
       }
     },

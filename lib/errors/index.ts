@@ -1,0 +1,1 @@
+export { TapestryServiceNotInstalledError } from './TapestryServiceNotInstalledError'

@@ -30,7 +30,6 @@ describe('Router Spool', () => {
     it('should attach prerequisite methods', () => {
       const routes = global.app.routes
       const configRoute = routes.find(r => {
-        console.log('checking', r)
         return (
           // TODO should this route actually have the prefix attached?
           // r.path === global.app.config.get('tapestries.prefix') + '/test/testHandler' &&
@@ -39,8 +38,8 @@ describe('Router Spool', () => {
         )
       })
 
-      console.log('configRoute', configRoute)
-      console.log('app.routes', global.app.routes)
+      // console.log('configRoute', configRoute)
+      // console.log('app.routes', global.app.routes)
 
       assert(_.isFunction(configRoute.config.pre[0]))
     })
