@@ -46,8 +46,7 @@
     }
   ],
   "dependencies": {
-    "lodash": "^4.13.0",
-    "@fabrix/spool-router": "^1.0.0-alpha.4"
+    "lodash": "^4.13.0"
   },
   "devDependencies": {
     "@fabrix/fabrix": "^1.0.0-alpha.4",
@@ -64,6 +63,7 @@
     "typescript": "~2.8.1"
   },
   "peerDependencies": {
+    "@fabrix/fabrix": "^1.0.0-alpha.4",
     "@fabrix/spool-router": "^1.0.0-alpha.4"
   },
   "license": "MIT",
