@@ -7,8 +7,7 @@
 [![Code Climate][codeclimate-image]][codeclimate-url]
 
 Tapestries Spool. This spool provides the tapestry interface, which
-other spools such as [spool-waterline](https://github.com/fabrix-app/spool-waterline)
-and [spool-knex](https://github.com/fabrix-app/spool-knex) implement,
+other spools such as [spool-sequelize](https://github.com/fabrix-app/spool-sequelize) implement,
 as well as a suite of tests that Tapestry implementations should pass.
 
 ![Fabrix Tapestries Diagram][diagram-image]
