@@ -29,7 +29,7 @@ $ npm install --save spool-tapestries
 module.exports = {
   packs: [
     // ... other spools
-    require('spool-tapestries')
+    require('spool-tapestries').TapestriesSpool
   ]
 }
 ```
