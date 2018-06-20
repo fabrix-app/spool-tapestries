@@ -32,7 +32,7 @@
     "rest",
     "restful"
   ],
-  "homepage": "https://github.com/fabrix-app/spool-tapestries",
+  "homepage": "https://fabrix.app",
   "author": "Fabrix Team <hello@fabrix.app>",
   "contributors": [
     {
@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "@fabrix/fabrix": "^1.0.0-alpha.4",
+    "@fabrix/spool-router": "^1.0.0-alpha.4",
     "@fabrix/lint": "^1.0.0-alpha.3",
     "@types/lodash": "^4.14.109",
     "@types/node": "~10.3.2",

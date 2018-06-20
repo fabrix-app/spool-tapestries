@@ -9,7 +9,6 @@ export const Util = {
    * Compile controller handlers into route objects
    */
   getControllerTapestries (app: FabrixApp): any[] {
-    console.log('controllers', Object.keys(app.controllers))
     if (app.config.get('tapestries.controllers')) {
       const controllers = omit(
         app.controllers,
@@ -46,7 +45,6 @@ export const Util = {
         return actionsConfig[handlerName]
       })
       .map(route => {
-        console.log('route to prefix:', route)
         return Object.assign(route, { path: `${prefix}${route.path}` })
       })
   },

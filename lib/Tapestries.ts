@@ -16,7 +16,6 @@ export class TapestriesSpool extends Spool {
       pkg: pkg,
       api: api
     })
-    console.log('CONFIG', config)
   }
 
   /**

@@ -6,11 +6,11 @@ export class TapestryService extends FabrixService {
     throw new TapestryServiceNotInstalledError()
   }
 
-  create (model, criteria, options) {
+  create (model, body, options) {
     throw new TapestryServiceNotInstalledError()
   }
 
-  update (model, criteria, options) {
+  update (model, criteria, body, options) {
     throw new TapestryServiceNotInstalledError()
   }
 
@@ -18,19 +18,19 @@ export class TapestryService extends FabrixService {
     throw new TapestryServiceNotInstalledError()
   }
 
-  findAssociation (model, criteria, options) {
+  findAssociation (parentModel, parentId, childAttribute, childId, options) {
     throw new TapestryServiceNotInstalledError()
   }
 
-  createAssociation (model, criteria, options) {
+  createAssociation (parentModel, parentId, childAttribute, body, options) {
     throw new TapestryServiceNotInstalledError()
   }
 
-  updateAssociation (model, criteria, options) {
+  updateAssociation (parentModel, parentId, childAttribute, childId, body, options) {
     throw new TapestryServiceNotInstalledError()
   }
 
-  destroyAssociation (model, criteria, options) {
+  destroyAssociation (parentModel, parentId, childAttribute, childId, options) {
     throw new TapestryServiceNotInstalledError()
   }
 }
