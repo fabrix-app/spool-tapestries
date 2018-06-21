@@ -25,56 +25,80 @@ describe('lib.api.services.TapestryService', () => {
   describe('#find', () => {
     describe('#message', () => {
       it('should specify the failed spool and stage', () => {
-        assert.throws(() => app.services.TapestryService.find('model','criteria', {}), Error)
+        app.services.TapestryService.find('model','criteria', {})
+          .catch(err => {
+            assert.throws(() => err, Error)
+          })
       })
     })
   })
   describe('#create', () => {
     describe('#message', () => {
       it('should specify the failed spool and stage', () => {
-        assert.throws(() => app.services.TapestryService.create('model','criteria', {}), Error)
+        app.services.TapestryService.create('model','criteria', {})
+          .catch(err => {
+            assert.throws(() => err, Error)
+          })
       })
     })
   })
   describe('#update', () => {
     describe('#message', () => {
       it('should specify the failed spool and stage', () => {
-        assert.throws(() => app.services.TapestryService.update('model','criteria', {}), Error)
+        app.services.TapestryService.update('model','criteria', {})
+          .catch(err => {
+            assert.throws(() => err, Error)
+          })
       })
     })
   })
   describe('#destroy', () => {
     describe('#message', () => {
       it('should specify the failed spool and stage', () => {
-        assert.throws(() => app.services.TapestryService.destroy('model','criteria', {}), Error)
+        app.services.TapestryService.destroy('model','criteria', {})
+          .catch(err => {
+            assert.throws(() => err, Error)
+          })
       })
     })
   })
   describe('#findAssociation', () => {
     describe('#message', () => {
       it('should specify the failed spool and stage', () => {
-        assert.throws(() => app.services.TapestryService.findAssociation('model','criteria', {}), Error)
+        app.services.TapestryService.findAssociation('model','criteria', {})
+          .catch(err => {
+            assert.throws(() => err, Error)
+          })
       })
     })
   })
   describe('#createAssociation', () => {
     describe('#message', () => {
       it('should specify the failed spool and stage', () => {
-        assert.throws(() => app.services.TapestryService.createAssociation('model','criteria', {}), Error)
+        app.services.TapestryService.createAssociation('model','criteria', {})
+          .catch(err => {
+            assert.throws(() => err, Error)
+          })
       })
     })
   })
   describe('#updateAssociation', () => {
     describe('#message', () => {
       it('should specify the failed spool and stage', () => {
-        assert.throws(() => app.services.TapestryService.updateAssociation('model','criteria', {}), Error)
+        app.services.TapestryService.updateAssociation('model','criteria', {})
+          .catch(err => {
+            assert.throws(() => err, Error)
+          })
       })
     })
   })
   describe('#destroyAssociation', () => {
     describe('#message', () => {
       it('should specify the failed spool and stage', () => {
-        assert.throws(() => app.services.TapestryService.destroyAssociation('model','criteria', {}), Error)
+        app.services.TapestryService.destroyAssociation('model','criteria', {})
+          .catch(err => {
+            assert.throws(() => err, Error)
+          })
       })
     })
   })

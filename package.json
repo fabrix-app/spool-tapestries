@@ -1,6 +1,6 @@
 {
   "name": "@fabrix/spool-tapestries",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "Tapestries Spool",
   "scripts": {
     "build": "tsc -p ./lib/tsconfig.release.json",
