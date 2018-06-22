@@ -53,14 +53,14 @@ export class TapestriesSpool extends Spool {
    *
    *    Operation | Method | Path                       | Tapestry Handler
    *    ----------+--------+----------------------------+-------------------
-   *    Create    | POST   | /model                     | TapestryController.create
-   *    Create    | POST   | /model/{id}/{child}        | TapestryController.createAssociation
-   *    Read      | GET    | /model/{id?}               | TapestryController.find
-   *    Read      | GET    | /model/{id}/{child}/{id?}  | TapestryController.findAssociation
-   *    Update    | PUT    | /model/{id?}               | TapestryController.update
-   *    Update    | PUT    | /model/{id}/{child}/{id?}  | TapestryController.updateAssociation
-   *    Delete    | DELETE | /model/{id?}               | TapestryController.destroy
-   *    Delete    | DELETE | /model/{id}/{child}/{id?}  | TapestryController.destroyAssociation
+   *    Create    | POST   | /{model}                   | TapestryController.create
+   *    Create    | POST   | /{model}/{id}/{child}      | TapestryController.createAssociation
+   *    Read      | GET    | /{model}/{id?}             | TapestryController.find
+   *    Read      | GET    | /{model}/{id}/{child}/{id?}| TapestryController.findAssociation
+   *    Update    | PUT    | /{model}/{id?}             | TapestryController.update
+   *    Update    | PUT    | /{model}/{id}/{child}/{id?}| TapestryController.updateAssociation
+   *    Delete    | DELETE | /{model}/{id?}             | TapestryController.destroy
+   *    Delete    | DELETE | /{model}/{id}/{child}/{id?}| TapestryController.destroyAssociation
    */
   configure () {
     const controllerTapestries = Util.getControllerTapestries(this.app)
