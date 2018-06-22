@@ -71,8 +71,8 @@ module.exports = {
     },
     main: {
       spools: [
-        require('../../dist').TapestriesSpool,
-        require('@fabrix/spool-router').RouterSpool
+        require('@fabrix/spool-router').RouterSpool,
+        require('../../dist').TapestriesSpool
       ]
     },
     log: {

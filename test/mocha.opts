@@ -2,7 +2,9 @@
 --recursive
 --full-trace
 --slow 50
+--no-exit
 --check-leaks
---timeout 10000
---globals app
---fgrep app.js --invert
+--globals app,__core-js_shared__,__coverage__
+
+test/unit/**/*.test.js test/integration/index.js test/integration/**/*.test.js
+

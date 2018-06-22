@@ -14,7 +14,7 @@ export const Util = {
         app.controllers,
         app.config.get('tapestries.controllers.ignore') || []
       )
-      const prefix = app.config.get('tapestries.prefix')
+      const prefix = (app.config.get('tapestries.prefix') || '').toString()
 
       return flatten(map(controllers, (controller, controllerName: string) => {
 
@@ -37,7 +37,7 @@ export const Util = {
    */
   getModelTapestries (app: FabrixApp): any[] {
     const actionsConfig = app.config.get('tapestries.models.actions') || []
-    const prefix = app.config.get('tapestries.prefix') || ''
+    const prefix = (app.config.get('tapestries.prefix') || '').toString()
 
     return Routes
       .filter(route => {

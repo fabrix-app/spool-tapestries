@@ -72,5 +72,9 @@ export class TapestriesSpool extends Spool {
       ...this.app.config.get('routes')
     ])
   }
+
+  async initialize() {
+    // Should we do free weight variable checking here?
+  }
 }
 
