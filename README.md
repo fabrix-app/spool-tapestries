@@ -192,8 +192,8 @@ The purpose of the `TapestryController` is to transform and forward requests to 
 
 
 [diagram-image]: http://i.imgur.com/olRxPS8.png
-[npm-image]: https://img.shields.io/npm/v/spool-tapestries.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/spool-tapestries
+[npm-image]: https://img.shields.io/npm/v/@fabrix/spool-tapestries.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/@fabrix/spool-tapestries
 [ci-image]: https://img.shields.io/circleci/project/github/fabrix-app/spool-tapestries/master.svg
 [ci-url]: https://circleci.com/gh/fabrix-app/spool-tapestries/tree/master
 [daviddm-image]: http://img.shields.io/david/fabrix-app/spool-tapestries.svg?style=flat-square
