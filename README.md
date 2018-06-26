@@ -2,9 +2,10 @@
 
 [![Gitter][gitter-image]][gitter-url]
 [![NPM version][npm-image]][npm-url]
-[![Build status][ci-image]][ci-url]
+[![Build Status][ci-image]][ci-url]
+[![Test Coverage][coverage-image]][coverage-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
-[![Code Climate][codeclimate-image]][codeclimate-url]
+[![Follow @fabrix-app on Twitter][twitter-image]][twitter-url]
 
 Tapestries Spool. This spool provides the tapestry interface, which
 other spools such as [spool-sequelize](https://github.com/fabrix-app/spool-sequelize) implement,
@@ -19,7 +20,7 @@ Tapestries automatically generate easy-to-use RESTful endpoints for your models.
 ## Install
 
 ```sh
-$ npm install --save spool-tapestries
+$ npm install @fabrix/spool-tapestries --save
 ```
 
 ## Configure
@@ -27,7 +28,7 @@ $ npm install --save spool-tapestries
 ```js
 // config/main.js
 module.exports = {
-  packs: [
+  spools: [
     // ... other spools
     require('spool-tapestries').TapestriesSpool
   ]
@@ -193,7 +194,7 @@ The purpose of the `TapestryController` is to transform and forward requests to 
 [diagram-image]: http://i.imgur.com/olRxPS8.png
 [npm-image]: https://img.shields.io/npm/v/spool-tapestries.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/spool-tapestries
-[ci-image]: https://img.shields.io/circleci/project/github/fabrix-app/spool-tapestries/nmaster.svg
+[ci-image]: https://img.shields.io/circleci/project/github/fabrix-app/spool-tapestries/master.svg
 [ci-url]: https://circleci.com/gh/fabrix-app/spool-tapestries/tree/master
 [daviddm-image]: http://img.shields.io/david/fabrix-app/spool-tapestries.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/fabrix-app/spool-tapestries
@@ -201,4 +202,6 @@ The purpose of the `TapestryController` is to transform and forward requests to 
 [codeclimate-url]: https://codeclimate.com/github/fabrix-app/spool-tapestries
 [gitter-image]: http://img.shields.io/badge/+%20GITTER-JOIN%20CHAT%20%E2%86%92-1DCE73.svg?style=flat-square
 [gitter-url]: https://gitter.im/fabrix-app/fabrix
+[twitter-image]: https://img.shields.io/twitter/follow/fabrix-app.svg?style=social
+[twitter-url]: https://twitter.com/fabrix-app
 
