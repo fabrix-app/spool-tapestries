@@ -30,7 +30,7 @@ $ npm install @fabrix/spool-tapestries --save
 module.exports = {
   spools: [
     // ... other spools
-    require('spool-tapestries').TapestriesSpool
+    require('@fabrix/spool-tapestries').TapestriesSpool
   ]
 }
 ```
