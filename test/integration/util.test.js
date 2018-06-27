@@ -3,6 +3,7 @@
 const _ = require('lodash')
 const assert = require('assert')
 const lib = require('../../dist')
+const FabrixApp = require('@fabrix/fabrix').FabrixApp
 
 describe('lib.Util', () => {
   describe('#getHandlerPath', () => {
@@ -31,6 +32,11 @@ describe('lib.Util', () => {
       assert.equal(tapestries.length, 0)
     })
 
+    it('should return an empty array', () => {
+      const app = new FabrixApp({pkg: {}, api: {}, config: {}})
+      const controllers = lib.Util.getControllerTapestries(app)
+      assert.equal(controllers.length, 0)
+    })
   })
 })
 

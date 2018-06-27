@@ -23,7 +23,7 @@ export class TapestriesSpool extends Spool {
    * TapestryService must be provided by other spools. Ensure that
    * these are available and appear valid.
    */
-  validate () {
+  async validate () {
     this.modelTapestries = true
 
     if (!this.app.api.services.TapestryService) {
@@ -63,18 +63,14 @@ export class TapestriesSpool extends Spool {
    *    Delete    | DELETE | /{model}/{id}/{child}/{id?}| TapestryController.destroyAssociation
    */
   configure () {
-    const controllerTapestries = Util.getControllerTapestries(this.app)
+    const controllerTapestries = Util.getControllerTapestries(this.app) || []
     const modelTapestries = this.modelTapestries ? Util.getModelTapestries(this.app) : []
-    const tapestryRoutes = union(controllerTapestries, modelTapestries)
+    const tapestryRoutes = union(controllerTapestries, modelTapestries) || []
 
     this.app.config.set('routes', [
       ...tapestryRoutes,
-      ...this.app.config.get('routes')
+      ...(this.app.config.get('routes') || [])
     ])
-  }
-
-  async initialize() {
-    // Should we do free weight variable checking here?
   }
 }
 

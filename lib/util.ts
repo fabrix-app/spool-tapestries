@@ -8,12 +8,13 @@ export const Util = {
   /**
    * Compile controller handlers into route objects
    */
-  getControllerTapestries (app: FabrixApp): any[] {
+  getControllerTapestries (app: FabrixApp): {method: string, path: string, handler: string}[] {
     if (app.config.get('tapestries.controllers')) {
       const controllers = omit(
-        app.controllers,
+        app.controllers || {},
         app.config.get('tapestries.controllers.ignore') || []
       )
+
       const prefix = (app.config.get('tapestries.prefix') || '').toString()
 
       return flatten(map(controllers, (controller, controllerName: string) => {
@@ -54,7 +55,7 @@ export const Util = {
   },
 
   getHandlerName (routeHandler: string = ''): string {
-    return (routeHandler).split('.')[1]
+    return (routeHandler.split('.')[1] || '').toString()
   },
 
   getHandlerPath (app: FabrixApp, prefix: string, controllerId: string, handlerName: string): string {
