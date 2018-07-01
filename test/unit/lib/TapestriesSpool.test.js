@@ -4,7 +4,7 @@ const TapestriesSpool = require('../../../dist').TapestriesSpool
 describe('TapestriesSpool', () => {
   let app
   beforeEach(() => {
-    app =  new FabrixApp({pkg:{}, config: {}, api: {}})
+    app =  new FabrixApp({pkg:{}, config: {}, api: { services: {}, controllers: {}}})
   })
 
   describe('#validate', () => {
