@@ -66,10 +66,11 @@ export class TapestriesSpool extends Spool {
     const controllerTapestries = Util.getControllerTapestries(this.app) || []
     const modelTapestries = this.modelTapestries ? Util.getModelTapestries(this.app) : []
     const tapestryRoutes = union(controllerTapestries, modelTapestries) || []
+    const configRoutes = Object.values(this.app.config.get('routes') || [])
 
     this.app.config.set('routes', [
       ...tapestryRoutes,
-      ...(this.app.config.get('routes') || [])
+      ...configRoutes
     ])
   }
 }

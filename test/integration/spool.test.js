@@ -5,7 +5,7 @@ describe('Router Spool', () => {
 
   describe('#configure', () => {
     it('should have a prefix', () => {
-      console.log(global.app.config.entries())
+      // console.log(global.app.config.entries())
       assert.equal(global.app.config.get('tapestries.prefix'), '/api/v1')
     })
   })
@@ -37,10 +37,6 @@ describe('Router Spool', () => {
           r.method === 'GET'
         )
       })
-
-      // console.log('configRoute', configRoute)
-      // console.log('app.routes', global.app.routes)
-
       assert(_.isFunction(configRoute.config.pre[0]))
     })
   })
