@@ -1,7 +1,7 @@
 import { Spool } from '@fabrix/fabrix/dist/common'
 import { union } from 'lodash'
 
-import { Util } from './util'
+import { Utils } from './utils'
 
 import * as config from './config/index'
 import * as pkg from '../package.json'
@@ -40,13 +40,11 @@ export class TapestriesSpool extends Spool {
    * Compile routes for controller handlers, and filter model actions based
    * on the tapestries config.
    *
-   * 1. ETL controller handlers into the standard (hapijs-based) route format.
+   * 1. ETL controller handlers into the standard (fabrix-based) route format.
    *    For example, the controller handler ExampleController.exampleHandler will
-   *    generate a hapijs route object of the following form:
-   *    {
-   *      method: '*',
-   *      path: '/example/exampleHandler',
-   *      handler: 'ExampleController.exampleHandler'
+   *    generate a fabrix route object of the following form:
+   *    '/example/exampleHandler': {
+   *      '*': 'ExampleController.exampleHandler'
    *    }
    *
    * 2. Create CRUD Route definition which maps to api.controllers.TapestryController
@@ -63,15 +61,15 @@ export class TapestriesSpool extends Spool {
    *    Delete    | DELETE | /{model}/{id}/{child}/{id?}| TapestryController.destroyAssociation
    */
   configure () {
-    const controllerTapestries = Util.getControllerTapestries(this.app) || []
-    const modelTapestries = this.modelTapestries ? Util.getModelTapestries(this.app) : []
-    const tapestryRoutes = union(controllerTapestries, modelTapestries) || []
-    const configRoutes = Object.values(this.app.config.get('routes') || [])
+    const controllerTapestries = Utils.getControllerTapestries(this.app) || {}
+    const modelTapestries = this.modelTapestries ? Utils.getModelTapestries(this.app) : {}
+    const tapestryRoutes = {...controllerTapestries, ...modelTapestries}
+    const configRoutes = this.app.config.get('routes') || {}
 
-    this.app.config.set('routes', [
+    this.app.config.set('routes', {
       ...tapestryRoutes,
       ...configRoutes
-    ])
+    })
   }
 }
 

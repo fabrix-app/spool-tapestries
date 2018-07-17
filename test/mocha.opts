@@ -1,10 +1,8 @@
 --reporter spec
 --recursive
 --full-trace
---slow 50
 --no-exit
 --check-leaks
 --globals app,__core-js_shared__,__coverage__
 
-test/unit/**/*.test.js test/integration/index.js test/integration/**/*.test.js
-
+test/index.js test/**/*.test.js

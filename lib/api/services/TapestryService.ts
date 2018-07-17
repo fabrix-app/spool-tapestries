@@ -1,4 +1,4 @@
-import { FabrixService, FabrixService as Service } from '@fabrix/fabrix/dist/common'
+import { FabrixService } from '@fabrix/fabrix/dist/common'
 import { TapestryServiceNotInstalledError } from '../../errors'
 
 export class TapestryService extends FabrixService {

@@ -7,11 +7,6 @@ module.exports = {
     name: 'tapestries-spool-test'
   },
   api: {
-    services: {
-      TapestryService: class TapestryService extends Service {
-
-      }
-    },
     policies: {
       TestPolicy: class TestPolicy extends Policy {
         test() {
@@ -24,7 +19,12 @@ module.exports = {
         }
       },
       TapestryController: class TapestryController extends Controller {
+        find() {
+
+        }
+
         create() {
+
         }
 
         update() {
@@ -67,29 +67,34 @@ module.exports = {
   },
   config: {
     tapestries: {
-      prefix: '/api/v1'
+      prefix: '/api/v1',
+      controllers: {
+        method: '*',
+        ignore: [
+          'TapestryController'
+        ]
+      }
     },
     main: {
       spools: [
         require('@fabrix/spool-router').RouterSpool,
-        require('../../dist').TapestriesSpool
+        require('../../dist/index').TapestriesSpool
       ]
     },
     log: {
       logger: new smokesignals.Logger('debug')
     },
-    routes: [
-      {
-        method: 'GET',
-        path: '/test/testHandler',
-        handler: 'TestController.testHandler',
+    routes: {
+      '/test/testHandler': {
+        'GET': 'TestController.testHandler',
         config: {
+          prefix: 'tapestries.prefix',
           pre: [
             'TestPolicy.test'
           ]
         }
       }
-    ]
+    }
   }
 }
 

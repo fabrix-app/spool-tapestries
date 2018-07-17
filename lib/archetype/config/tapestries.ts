@@ -8,6 +8,10 @@
  * @see http://fabrix.app/doc/config/tapestries
  */
 export const tapestries = {
+  /**
+   * Prefix your tapestry routes
+   */
+  prefix: '/api/v1',
 
   /**
    * Generate routes for controller handlers.
@@ -47,10 +51,5 @@ export const tapestries = {
       updateAssociation: true,
       destroyAssociation: true
     }
-  },
-
-  /**
-   * Prefix your tapestry routes
-   */
-  prefix: '/api/v1'
+  }
 }

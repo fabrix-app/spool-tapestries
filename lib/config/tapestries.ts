@@ -2,12 +2,7 @@ export const tapestries = {
 
   prefix: '',
 
-  controllers: {
-    method: '*',
-    ignore: [
-      'TapestryController'
-    ]
-  },
+  controllers: false,
 
   models: {
     options: {

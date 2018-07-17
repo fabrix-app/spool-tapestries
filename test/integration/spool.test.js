@@ -5,6 +5,7 @@ describe('Router Spool', () => {
 
   describe('#configure', () => {
     it('should have a prefix', () => {
+      console.log(global.app.routes)
       // console.log(global.app.config.entries())
       assert.equal(global.app.config.get('tapestries.prefix'), '/api/v1')
     })
@@ -13,30 +14,23 @@ describe('Router Spool', () => {
     it('should include tapestry routes (Controllers) in app.routes', () => {
       const routes = global.app.routes
 
-      assert.equal(routes.length, 4)
-      assert(_.find(routes, {path: global.app.config.get('tapestries.prefix') + '/test/testHandler'}))
+      assert.equal(Object.keys(routes).length, 5)
+      assert(routes[global.app.config.get('tapestries.prefix') + '/test/testHandler'])
     })
     it('should include tapestry routes (Models) in app.routes', () => {
       const routes = global.app.routes
 
-      assert.equal(routes.length, 4)
-      assert(_.find(routes, {path: global.app.config.get('tapestries.prefix') + '/{model}', method: 'POST'}))
+      assert.equal(Object.keys(routes).length, 5)
+      assert(routes[global.app.config.get('tapestries.prefix') + '/{model}'])
     })
     it('should bind route handler to controller method', () => {
       const routes = global.app.routes
-
-      assert(_.isFunction(routes[0].handler))
+      assert(_.isFunction(routes[global.app.config.get('tapestries.prefix') + '/{model}/{id?}'].GET))
+      assert(_.isFunction(routes[global.app.config.get('tapestries.prefix') + '/{model}/{id?}'].PUT))
+      assert(_.isFunction(routes[global.app.config.get('tapestries.prefix') + '/{model}/{id?}'].PATCH))
     })
     it('should attach prerequisite methods', () => {
-      const routes = global.app.routes
-      const configRoute = routes.find(r => {
-        return (
-          // TODO should this route actually have the prefix attached?
-          // r.path === global.app.config.get('tapestries.prefix') + '/test/testHandler' &&
-          r.path === '/test/testHandler' &&
-          r.method === 'GET'
-        )
-      })
+      const configRoute = global.app.routes[global.app.config.get('tapestries.prefix') + '/test/testHandler']
       assert(_.isFunction(configRoute.config.pre[0]))
     })
   })
