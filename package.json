@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@fabrix/fabrix": "^1.1.1",
-    "@fabrix/spool-router": "^1.1.1",
+    "@fabrix/spool-router": "^1.1.2",
     "@fabrix/lint": "^1.0.0-alpha.3",
     "@types/lodash": "^4.14.109",
     "@types/node": "~10.3.4",
