@@ -26,8 +26,8 @@ $ npm install @fabrix/spool-tapestries --save
 ## Configure
 
 ```js
-// config/main.js
-module.exports = {
+// config/main.ts
+export const main  {
   spools: [
     // ... other spools
     require('@fabrix/spool-tapestries').TapestriesSpool
@@ -36,8 +36,8 @@ module.exports = {
 ```
 
 ```js
-// config/tapestries.js
-module.exports = {
+// config/tapestries.ts
+export const tapestries = {
   /**
    * Generate routes for controller handlers.
    * You can set controllers to true/false to enable/disable 
