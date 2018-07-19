@@ -14,24 +14,24 @@ describe('Router Spool', () => {
     it('should include tapestry routes (Controllers) in app.routes', () => {
       const routes = global.app.routes
 
-      assert.equal(Object.keys(routes).length, 5)
-      assert(routes[global.app.config.get('tapestries.prefix') + '/test/testHandler'])
+      assert.equal(routes.size, 5)
+      assert(routes.get(global.app.config.get('tapestries.prefix') + '/test/testHandler'))
     })
     it('should include tapestry routes (Models) in app.routes', () => {
       const routes = global.app.routes
 
-      assert.equal(Object.keys(routes).length, 5)
-      assert(routes[global.app.config.get('tapestries.prefix') + '/{model}'])
+      assert.equal(routes.size, 5)
+      assert(routes.get(global.app.config.get('tapestries.prefix') + '/{model}'))
     })
     it('should bind route handler to controller method', () => {
       const routes = global.app.routes
-      assert(_.isFunction(routes[global.app.config.get('tapestries.prefix') + '/{model}/{id?}'].GET))
-      assert(_.isFunction(routes[global.app.config.get('tapestries.prefix') + '/{model}/{id?}'].PUT))
-      assert(_.isFunction(routes[global.app.config.get('tapestries.prefix') + '/{model}/{id?}'].PATCH))
+      assert(_.isFunction(routes.get(global.app.config.get('tapestries.prefix') + '/{model}/{id?}').GET.handler))
+      assert(_.isFunction(routes.get(global.app.config.get('tapestries.prefix') + '/{model}/{id?}').PUT.handler))
+      assert(_.isFunction(routes.get(global.app.config.get('tapestries.prefix') + '/{model}/{id?}').PATCH.handler))
     })
     it('should attach prerequisite methods', () => {
-      const configRoute = global.app.routes[global.app.config.get('tapestries.prefix') + '/test/testHandler']
-      assert(_.isFunction(configRoute.config.pre[0]))
+      const configRoute = global.app.routes.get(global.app.config.get('tapestries.prefix') + '/test/testHandler')
+      assert(_.isFunction(configRoute.GET.config.pre[0]))
     })
   })
 })

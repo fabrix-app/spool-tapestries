@@ -20,7 +20,9 @@ export const Utils = {
    * Get the Controllers to be Ignored by Tapestries
    */
   getControllerIgnore(app: FabrixApp): string[] {
-    return Object.values(app.config.get('tapestries.controllers.ignore') || [])
+    const configIgnore: string[] = Object.values(app.config.get('tapestries.controllers.ignore') || [])
+    const defaultIgnore = ['TapestryController']
+    return [...configIgnore, ...defaultIgnore]
   },
 
   /**

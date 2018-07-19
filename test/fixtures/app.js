@@ -70,9 +70,7 @@ module.exports = {
       prefix: '/api/v1',
       controllers: {
         method: '*',
-        ignore: [
-          'TapestryController'
-        ]
+        ignore: []
       }
     },
     main: {

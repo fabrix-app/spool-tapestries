@@ -1,6 +1,6 @@
 export const tapestries = {
 
-  prefix: '',
+  prefix: null,
 
   controllers: false,
 

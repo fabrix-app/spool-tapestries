@@ -2,6 +2,7 @@ import { Spool } from '@fabrix/fabrix/dist/common'
 import { union } from 'lodash'
 
 import { Utils } from './utils'
+import { validateConfig } from './validator'
 
 import * as config from './config/index'
 import * as pkg from '../package.json'
@@ -34,6 +35,9 @@ export class TapestriesSpool extends Spool {
       this.log.warn('spool-tapestries is installed, but TapestryController is not provided')
       this.modelTapestries = false
     }
+    return Promise.all([
+      validateConfig.validateConfig(this.app.config.get('tapestries'))
+    ])
   }
 
   /**
