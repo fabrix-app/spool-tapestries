@@ -25,16 +25,16 @@ export const Utils = {
     return [...configIgnore, ...defaultIgnore]
   },
 
-  /**
-   * Get either the configured spool-tapestries prefix, or use the one set by spool-router if any.
-   */
-  getPrefix(app: FabrixApp) {
-    let prefix = app.config.get('tapestries.prefix')
-    if (!prefix) {
-      prefix = app.config.get('router.prefix') || ''
-    }
-    return prefix.toString()
-  },
+  // /**
+  //  * Get either the configured spool-tapestries prefix, or use the one set by spool-router if any.
+  //  */
+  // getPrefix(app: FabrixApp) {
+  //   let prefix = app.config.get('tapestries.prefix')
+  //   if (!prefix) {
+  //     prefix = app.config.get('router.prefix') || ''
+  //   }
+  //   return prefix.toString()
+  // },
   /**
    * Compile controller handlers into route objects
    */
@@ -49,12 +49,12 @@ export const Utils = {
       Utils.getControllerIgnore(app)
     )
 
-    const prefix = Utils.getPrefix(app)
+    // const prefix = Utils.getPrefix(app)
     const routes = {}
     Object.keys(controllers).forEach((controllerName: string) => {
       controllers[controllerName].methods.forEach(handlerName => {
         const route = {}
-        const path = Utils.getHandlerPath(app, prefix, controllers[controllerName].id, handlerName)
+        const path = Utils.getHandlerPath(app, controllers[controllerName].id, handlerName)
 
         Utils.getControllerMethods(app).forEach(method => {
           route[method] = Utils.getControllerHandler(controllerName, handlerName)
@@ -71,7 +71,7 @@ export const Utils = {
    */
   getModelTapestries (app: FabrixApp): {[key: string]: any} {
     const actionsConfig = app.config.get('tapestries.models.actions') || {}
-    const prefix = Utils.getPrefix(app)
+    // const prefix = Utils.getPrefix(app)
     const routes = {}
     Object.keys(Routes).forEach(path => {
       Object.keys(Routes[path]).map(m => {
@@ -81,7 +81,7 @@ export const Utils = {
           }
         }
       })
-      routes[`${prefix}${path}`] = Routes[path]
+      routes[`${path}`] = Routes[path]
     })
     return routes
   },
@@ -103,7 +103,7 @@ export const Utils = {
   /**
    * Join a list as a path
    */
-  getHandlerPath (app: FabrixApp, prefix: string, controllerId: string, handlerName: string): string {
-    return join('/', prefix, controllerId, handlerName)
+  getHandlerPath (app: FabrixApp, controllerId: string, handlerName: string): string {
+    return join('/', controllerId, handlerName)
   }
 }

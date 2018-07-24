@@ -9,8 +9,8 @@ describe('lib.Util', () => {
   describe('#getHandlerPath', () => {
     it('should return correct url path for controller handler', () => {
       assert.equal(
-        lib.Utils.getHandlerPath(global.app, '/prefix', 'test', 'test'),
-        '/prefix/test/test'
+        lib.Utils.getHandlerPath(global.app, '/prefix', 'test'),
+        '/prefix/test'
       )
     })
   })
@@ -21,7 +21,7 @@ describe('lib.Util', () => {
       const tapestries = lib.Utils.getControllerTapestries(global.app)
       assert.equal(Object.keys(tapestries).length, 1)
       // assert(_.find(tapestries, {handler: 'TestController.testHandler'}))
-      assert(tapestries[global.app.config.get('tapestries.prefix') + '/test/testHandler'])
+      assert(tapestries['/test/testHandler'])
     })
 
     it('should return an empty array if controller tapestry routes are disabled', () => {
