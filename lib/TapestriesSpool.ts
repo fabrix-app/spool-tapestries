@@ -1,5 +1,4 @@
 import { Spool } from '@fabrix/fabrix/dist/common'
-import { union } from 'lodash'
 
 import { Utils } from './utils'
 import { validateConfig } from './validator'
@@ -38,6 +37,9 @@ export class TapestriesSpool extends Spool {
     return Promise.all([
       validateConfig.validateConfig(this.app.config.get('tapestries'))
     ])
+      .catch(err => {
+        return Promise.reject(err)
+      })
   }
 
   /**
@@ -64,7 +66,7 @@ export class TapestriesSpool extends Spool {
    *    Delete    | DELETE | /{model}/{id?}             | TapestryController.destroy
    *    Delete    | DELETE | /{model}/{id}/{child}/{id?}| TapestryController.destroyAssociation
    */
-  configure () {
+  async configure () {
     const controllerTapestries = Utils.getControllerTapestries(this.app) || {}
     const modelTapestries = this.modelTapestries ? Utils.getModelTapestries(this.app) : {}
     const tapestryRoutes = {...controllerTapestries, ...modelTapestries}
@@ -74,6 +76,8 @@ export class TapestriesSpool extends Spool {
       ...tapestryRoutes,
       ...configRoutes
     })
+
+    return Promise.resolve()
   }
 }
 
