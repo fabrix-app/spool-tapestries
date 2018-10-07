@@ -9,4 +9,10 @@ describe('lib.Errors', () => {
       assert.equal(err.name, 'TapestryServiceNotInstalledError')
     })
   })
+  describe('TapestryControllerNotInstalledError', () => {
+    it('#name', () => {
+      const err = new lib.Errors.TapestryControllerNotInstalledError()
+      assert.equal(err.name, 'TapestryControllerNotInstalledError')
+    })
+  })
 })
