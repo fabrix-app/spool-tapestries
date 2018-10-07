@@ -5,7 +5,7 @@
  * Tapestries are routes that are auto-generated from your model and controller
  * definitions in api/controllers and api/models.
  *
- * @see http://fabrix.app/doc/config/tapestries
+ * @see https://fabrix.app/docs/config/tapestries
  */
 export const tapestries = {
   /**
