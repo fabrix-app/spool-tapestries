@@ -1,5 +1,10 @@
+'use strict'
+
 const smokesignals = require('smokesignals')
-require('@fabrix/fabrix')
+const Policy = require('@fabrix/fabrix/dist/common/Policy').FabrixPolicy
+const Controller = require('@fabrix/fabrix/dist/common/Controller').FabrixController
+const Model = require('@fabrix/fabrix/dist/common/Model').FabrixModel
+
 
 
 module.exports = {
