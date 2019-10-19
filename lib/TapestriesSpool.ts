@@ -26,11 +26,11 @@ export class TapestriesSpool extends Spool {
   async validate () {
     this.modelTapestries = true
 
-    if (!this.app.api.services.TapestryService) {
+    if (!this.app.api.services['TapestryService']) {
       this.log.warn('spool-tapestries is installed, but TapestryService is not provided')
       this.modelTapestries = false
     }
-    if (!this.app.api.controllers.TapestryController) {
+    if (!this.app.api.controllers['TapestryController']) {
       this.log.warn('spool-tapestries is installed, but TapestryController is not provided')
       this.modelTapestries = false
     }
@@ -68,8 +68,13 @@ export class TapestriesSpool extends Spool {
    */
   async configure () {
     const controllerTapestries = Utils.getControllerTapestries(this.app) || {}
-    const modelTapestries = this.modelTapestries ? Utils.getModelTapestries(this.app) : {}
-    const tapestryRoutes = {...controllerTapestries, ...modelTapestries}
+    const modelTapestries = this.modelTapestries
+      ? Utils.getModelTapestries(this.app)
+      : {}
+    const tapestryRoutes = {
+      ...controllerTapestries,
+      ...modelTapestries
+    }
     const configRoutes = this.app.config.get('routes') || {}
 
     this.app.config.set('routes', {
@@ -77,6 +82,13 @@ export class TapestriesSpool extends Spool {
       ...configRoutes
     })
 
+    return Promise.resolve()
+  }
+
+  /**
+   * Make sure everything is configured correctly
+   */
+  async sanity() {
     return Promise.resolve()
   }
 }

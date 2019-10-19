@@ -1,4 +1,4 @@
-import * as joi from 'joi'
+import joi from 'joi'
 import { tapestries } from '../schemas/tapestries'
 
 export const validateConfig = {

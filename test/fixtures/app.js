@@ -81,6 +81,7 @@ module.exports = {
     main: {
       spools: [
         require('@fabrix/spool-router').RouterSpool,
+        require('@fabrix/spool-errors').ErrorsSpool,
         require('../../dist/index').TapestriesSpool
       ]
     },
