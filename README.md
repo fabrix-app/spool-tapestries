@@ -7,7 +7,12 @@
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![Follow @fabrix-app on Twitter][twitter-image]][twitter-url]
 
-Tapestries Spool. This spool provides the tapestry interface, which
+
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
+:package: Tapestries Spool
+
+This spool provides the tapestry interface, which
 other spools such as [spool-sequelize](https://github.com/fabrix-app/spool-sequelize) implement,
 as well as a suite of tests that Tapestry implementations should pass.
 
@@ -27,10 +32,12 @@ $ npm install @fabrix/spool-tapestries --save
 
 ```js
 // config/main.ts
-export const main  {
+import { TapestriesSpool } from '@fabrix/spool-tapestries'
+
+export const main = {
   spools: [
     // ... other spools
-    require('@fabrix/spool-tapestries').TapestriesSpool
+    TapestriesSpool
   ]
 }
 ```
